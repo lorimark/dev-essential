@@ -8,15 +8,9 @@
 #        console prompt will be modified to clearly
 #        indicate we are inside a container;
 #
-# add this to your .bashrc
-## if test -f /.dockerenv; then
-##   if test -f /.containername; then
-##     PS1="D:$(cat /.containername)-> $PS1"
-##   fi
-##   if test -f /.containerinfo; then
-##    cat /.containerinfo
-##   fi
-## fi
+# add this to your .bashrc to modify the prompt
+## [ -f "/.bashrc_container" ] && source "/.bashrc_container"
+##
 
 docker run                             \
   -it                                  \

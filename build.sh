@@ -13,7 +13,7 @@ rsync -avhq  run.sh       context/root/opt/dev-essential/
 rsync -avhq  save.sh      context/root/opt/dev-essential/
 
 echo "building docker dev-essential image"
-date > context/root/buildtime
+date > context/root/.buildtime
 # docker build -t="dev-essential:1" --no-cache context
 docker build -t="dev-essential:1" context
 

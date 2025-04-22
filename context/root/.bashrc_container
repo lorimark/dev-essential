@@ -3,6 +3,10 @@
 # this will modify the prompt to include reference to
 #  the running container on the command line.
 #
+# add the following to your local .bashrc file to cause this
+#  to be automatically included on new containers;
+#  [ -f "/.bashrc_container" ] && source "/.bashrc_container"
+#
 if test -f /.dockerenv; then
   if test -f /.containername; then
     PS1="D:$(cat /.containername)-> $PS1"
