@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns:if="Wt.WTemplate.conditions">
+
+  <message id="Wtx.add">add</message>
+  <message id="Wtx.edit">edit</message>
+  <message id="Wtx.delete">delete</message>
+  <message id="Wtx.export">export</message>
+  <message id="Wtx.print">print</message>
+
+  <doc>
+    This block is used to 'bind' a widget of any type to the form
+     without the conditional blocks and so on.  It is used when
+     binding table-views and other random widgets.
+  </doc>
+  <message id="Wtx.detailForm.bind">
+    <![CDATA[
+      <div class="{2}">
+        <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+          <label class="control-label" style="margin-bottom:0px; font-size:12px" for="${id:{1}}">
+            ${{1}-label}
+          </label>
+          <div class="{3}">${{1}}</div>
+        </div>
+      </div>
+    ]]>
+  </message>
+
+  <message id="Wtx.detailForm.field">
+    <![CDATA[
+      ${<if:{1}>}
+        <div class="{2}" Wtx_detailForm_field="{1}">
+          <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+            <label class="control-label" style="margin-bottom:0px; font-size:12px" for="${id:{1}}">
+              ${{1}-label}
+            </label>
+            <div class="{3}">${{1}}</div>
+            <div>${{1}-info class="red-invalid"}</div>
+          </div>
+        </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+  <note>
+    This is a field followed by a mini push-button field.
+    It is usually used when you want to make a combo-box
+    like field input, or a date-edit input where there is
+    a line-input and a small push button tacked on to the
+    end.
+  </note>
+  <message id="Wtx.detailForm.fieldPB">
+    <![CDATA[
+      ${<if:{1}>}
+        <div class="{2}" Wtx_detailForm_field="{1}">
+          <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+            <label class="control-label" style="margin-bottom:0px; font-size:12px" for="${id:{1}}">
+              ${{1}-label}
+            </label>
+            <span><div class="{3}">${{1}}${{1}-pb}</div></span>
+            <div>${{1}-info class="red-invalid"}</div>
+          </div>
+        </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+  <message id="Wtx.detailForm.fieldnl">
+    <![CDATA[
+      ${<if:{1}>}
+        <div class="{2}" Wtx_detailForm_field="{1}">
+          <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+            <div class="{3}">${{1}}</div>
+            <div>${{1}-info class="red-invalid"}</div>
+          </div>
+        </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+  <message id="Wtx.detailForm.hfield">
+    <![CDATA[
+      ${<if:{1}>}
+        <div class="{2}" Wtx_detailForm_field="{1}">
+          <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+            <label class="control-label" style="margin-bottom:0px; font-size:12px" for="${id:{1}}">
+              ${{1}-label}
+            </label>
+            <div class="{3}">${{1}}</div>
+            <div>${{1}-info class="red-invalid"}</div>
+          </div>
+        </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+  <message id="Wtx.detailForm.fieldLE1">
+    <![CDATA[
+      ${<if:{1}>}
+        <div class="{2}">
+          <div class="form-group" style="margin-bottom:0px; margin-top:0px">
+            <label class="control-label" style="margin-bottom:0px; font-size:12px" for="${id:{1}}">
+              ${{1}-label}
+            </label>
+            <div class="{3}">${{1}}</div>
+            <div>${{1}-info class="red-invalid"}</div>
+          </div>
+        </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+    <style>
+      .fg-cb-top {
+      margin-top:-2px;
+
+      }
+
+      .fg-cb-bot {
+      margin-top:-2px;
+
+      }
+
+    </style>
+
+  <message id="Wtx.detailForm.fieldCB1"> <!-- for checkboxes:-->
+    <![CDATA[
+    ${<if:{1}>}
+      <div class="{2}">
+        <div class="form-group {4}" style="margin-bottom:0px;">
+          <div class="{3}" style="padding-top:2px; margin-top:0px">
+            ${{1}}
+            <label class="control-label " style="padding-left:5px; font-size:12px" for="${id:{1}}">
+              ${{1}-label}
+            </label>
+          </div>
+        </div>
+      </div>
+      ${</if:{1}>}
+    ]]>
+  </message>
+
+  <message id="Wtx.sysUser.detailForm">
+    ${block:Wtx.detailForm.field keyField    "col-sm-4" }
+    ${block:Wtx.detailForm.field cfyField    "col-sm-3" }
+    ${block:Wtx.detailForm.field nickname    "col-sm-3" }
+    ${block:Wtx.detailForm.field isActive    "col-sm-2" }
+    ${block:Wtx.detailForm.field firstName   "col-sm-6" }
+    ${block:Wtx.detailForm.field lastName    "col-sm-6" }
+    ${block:Wtx.detailForm.field phone       "col-sm-6" }
+    ${block:Wtx.detailForm.field email       "col-sm-6" }
+    ${block:Wtx.detailForm.field groups      "col-sm-12" }
+    ${block:Wtx.detailForm.field notes       "col-sm-12" }
+    ${block:Wtx.detailForm.field storage     "col-sm-12" }
+    ${block:Wtx.detailForm.field tag         "col-sm-12" }
+
+  </message>
+
+  <!--
+    This sql is used to generate a combo box
+     lookup that includes an item with an id=-1
+     so that _no_ item can be selected
+  -->
+  <message id="Wtx.sysLookup.combobox.sql">
+    <![CDATA[
+    SELECT
+      id as idval,
+      "keyField" as keyval
+    FROM
+      "sysLookup"
+    WHERE
+      "isActive" is true
+    AND
+    UPPER("cfyField") LIKE '%FEECOST%'
+    UNION
+      SELECT
+        -1 as idval,
+        '' as keyval
+    ORDER BY
+      keyval
+    ]]>
+  </message>
+
+</messages>
+
+

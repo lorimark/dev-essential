@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns:if="Wt.WTemplate.conditions">
+
+  <message id="crmPerson.detailForm">
+
+    ${block:Wtx.detailForm.field keyField               "col-lg-6" }
+    ${block:Wtx.detailForm.field cfyField               "col-lg-6" }
+    ${block:Wtx.detailForm.field phone                  "col-lg-12" }
+    ${block:Wtx.detailForm.field fax                    "col-lg-12" }
+    ${block:Wtx.detailForm.field cell                   "col-lg-12" }
+    ${block:Wtx.detailForm.field email                  "col-lg-12" }
+    ${block:Wtx.detailForm.field firstName              "col-lg-12" }
+    ${block:Wtx.detailForm.field lastName               "col-lg-12" }
+    ${block:Wtx.detailForm.field varField               "col-lg-12" }
+
+  </message>
+
+  <message id="crmCompany.detailForm">
+
+    ${block:Wtx.detailForm.field keyField               "col-lg-6" }
+    ${block:Wtx.detailForm.field cfyField               "col-lg-6" }
+    ${block:Wtx.detailForm.field phone                  "col-lg-12" }
+    ${block:Wtx.detailForm.field fax                    "col-lg-12" }
+    ${block:Wtx.detailForm.field cell                   "col-lg-12" }
+    ${block:Wtx.detailForm.field email                  "col-lg-12" }
+    ${block:Wtx.detailForm.field firstName              "col-lg-12" }
+    ${block:Wtx.detailForm.field lastName               "col-lg-12" }
+    ${block:Wtx.detailForm.field varField               "col-lg-12" }
+
+  </message>
+
+</messages>
+
+
+

@@ -1,0 +1,237 @@
+/**************************************************************************
+###########################################################################
+##
+## $SHOWOFFDB_BEGIN_LICENSE$
+## Copyright (C) 2011 Lorimark Solutions, LLC and/or its subsidiary(-ies).
+##  All rights reserved.
+##  Contact: Lorimark Solutions, LLC (info@showoff-db.org)
+##
+## This file is part of the Showoff Database Application Framework.
+##
+##  Commercial Usage
+##  Licensees holding valid ShowoffDB Commercial licenses may use this file in
+##   accordance with the ShowoffDB Commercial License Agreement provided with the
+##   Software or, alternatively, in accordance with the terms contained in
+##   a written agreement between you and Lorimark Solutions, LLC.
+##
+## GNU Lesser General Public License Usage
+##  Alternatively, this file may be used under the terms of the GNU Lesser
+##   General Public License version 2.1 as published by the Free Software
+##   Foundation and appearing in the file LICENSE.LGPL included in the             bu-+
+##   packaging of this file.  Please review the following information to
+##   ensure the GNU Lesser General Public License version 2.1 requirements
+##   will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+##
+## In addition, as a special exception, Lorimark Solutions, LLC gives
+##  you certain additional rights.  These rights are described in the
+##  Lorimark Solutions, LLC ShowoffDB LGPL Exception version 1.0, included in
+##  the file LGPL_EXCEPTION.txt in this package.
+##
+## GNU General Public License Usage
+##  Alternatively, this file may be used under the terms of the GNU
+##   General Public License version 3.0 as published by the Free Software
+##   Foundation and appearing in the file LICENSE.GPL included in the
+##   packaging of this file.  Please review the following information to
+##   ensure the GNU General Public License version 3.0 requirements will be
+##   met: http://www.gnu.org/copyleft/gpl.html.
+##
+## If you have questions regarding the use of this file, please contact
+##   Lorimark Solutions, LLC at info@showoff-db.org.
+## $SHOWOFFDB_END_LICENSE$
+##
+#############################################################################
+****************************************************************************/
+
+
+#include <Wt/WString.h>
+#include <Wt/WLineEdit.h>
+#include <Wt/WWidget.h>
+
+#include "FormModel.h"
+#include "Dbo/FieldDefBase.h"
+
+#ifdef FM_DEBUG_TRACE
+#define COUT_LINE \
+  std::cout << __FILE__ << ":" << __LINE__ << std::endl;
+#else
+#define COUT_LINE
+#endif
+
+Wtx::FormModel::FormModel( Wtx::Dbo::TableDef & td )
+: Wt::WFormModel(),
+  m_tableDef(td)
+{
+  init();
+}
+
+Wtx::FormModel::~FormModel()
+{
+}
+
+void Wtx::FormModel::init()
+{
+  for( auto fieldDef : tableDef().fieldDefs() )
+  {
+    auto fieldName = fieldDef-> fieldName();
+
+    addField( fieldName );
+
+    /*!
+    ** \todo need to read "NoUi" and set appropriate field flags to handle
+    **  conditions where we simply do not want to register any of the Dbo
+    **  fields in to the UI.
+    **
+    */
+
+//    std::cout << __FILE__ << ":" << __LINE__ << " " << fieldName << " " << fieldDef-> isReadOnly() << std::endl;
+
+    setReadOnly( fieldName, fieldDef-> isReadOnly() );
+    setVisible(  fieldName, fieldDef-> isVisible()  );
+
+    if( fieldDef-> flags() & Wtx::Dbo::FieldDefBase::NoUi )
+      setVisible( fieldName, false );
+
+
+  } // endfor( auto fieldDef : tableDef().fieldDefs() )
+
+}
+
+std::unique_ptr<Wt::WWidget> Wtx::FormModel::createWidget( Wtx::Dbo::Session & session )
+{
+  COUT_LINE;
+  return std::make_unique<Wt::WLineEdit>();
+}
+
+void Wtx::FormModel::reset()
+{
+  COUT_LINE;
+  Wt::WFormModel::reset();
+}
+
+bool Wtx::FormModel::validate()
+{
+  COUT_LINE;
+  return Wt::WFormModel::validate();
+}
+
+
+bool Wtx::FormModel::isVisible( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::isVisible( field );
+}
+
+
+bool Wtx::FormModel::isReadOnly( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::isReadOnly( field );
+}
+
+/*!
+** \brief Get Field Label
+**
+** This will return the proper 'label' for a form field.
+**
+*/
+Wt::WString Wtx::FormModel::label( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+
+  /*!
+  ** This will try first to get a label from the field-definition.
+  **
+  */
+  Wt::WString retVal = tableDef().fieldDef(field)-> label();
+
+  /*!
+  ** If there is no value in the field-def object, then
+  **  this will turn to the base-class to see if there is a field-name
+  **  in the transaltion table somewhere.  According to the Wt docs,
+  **  the system by default will perform a WString::tr(fieldName) and
+  **  return that by default, so if there is no transaltion for this
+  **  field name, then the return value is going to have '??fieldName??'
+  *   (double-question-marks) surrounding the field name.
+  **
+  */
+  if( retVal == "" )
+      retVal = Wt::WFormModel::label( field );
+
+  /*!
+  ** if the field-name could not be transalted properly, then this will just
+  **  default to the actual field name itself, so that it doesn't look 'goofy'
+  **  on the screens like '??keyField??' and so on...
+  **
+  */
+  if( retVal.toUTF8().substr(0,2) == "??" )
+      retVal = field;
+
+  return retVal;
+
+} // endWt::WString Wtx::FormModel::label( Wt::WFormModel::Field field ) const
+
+
+void Wtx::FormModel::setValue( Wt::WFormModel::Field field, const Wt::cpp17::any &value )
+{
+  COUT_LINE;
+  Wt::WFormModel::setValue( field, value );
+}
+
+
+const Wt::cpp17::any & Wtx::FormModel::value( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::value( field );
+}
+
+
+Wt::WString Wtx::FormModel::valueText( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::valueText( field );
+}
+
+
+void Wtx::FormModel::setValidator( Wt::WFormModel::Field field, const std::shared_ptr< Wt::WValidator > &validator )
+{
+  COUT_LINE;
+  Wt::WFormModel::setValidator( field, validator );
+}
+
+
+std::shared_ptr< Wt::WValidator > Wtx::FormModel::validator( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::validator( field );
+}
+
+
+bool Wtx::FormModel::validateField( Wt::WFormModel::Field field )
+{
+  COUT_LINE;
+  return Wt::WFormModel::validateField( field );
+}
+
+
+void Wtx::FormModel::setValidated( Wt::WFormModel::Field field, bool validated )
+{
+  COUT_LINE;
+  Wt::WFormModel::setValidated( field, validated );
+}
+
+
+bool Wtx::FormModel::isValidated( Wt::WFormModel::Field field ) const
+{
+  COUT_LINE;
+  return Wt::WFormModel::isValidated( field );
+}
+
+
+void Wtx::FormModel::setValidation( Wt::WFormModel::Field field, const Wt::WValidator::Result &result )
+{
+  COUT_LINE;
+  Wt::WFormModel::setValidation( field, result );
+}
+
+
+

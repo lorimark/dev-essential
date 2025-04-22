@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages>
+  <!-- All languages -->
+  <message id="wtx.eml.composer.send">Send</message>
+  <message id="wtx.eml.composer.savenow">Save Now</message>
+  <message id="wtx.eml.composer.discard">Discard</message>
+  <message id="wtx.eml.composer.from">From:</message>
+  <message id="wtx.eml.composer.to">To:</message>
+  <message id="wtx.eml.composer.cc">Cc:</message>
+  <message id="wtx.eml.composer.bcc">Bcc:</message>
+  <message id="wtx.eml.composer.addcc">Add Cc</message>
+  <message id="wtx.eml.composer.addbcc">Add Bcc</message>
+  <message id="wtx.eml.composer.subject">Subject:</message>
+  <message id="wtx.eml.composer.attachfile">Attach a file</message>
+  <message id="wtx.eml.composer.attachanother">Attach another file</message>
+  <message id="wtx.eml.composer.remove">remove</message>
+  <message id="wtx.eml.composer.file-empty">Error: file was empty!</message>
+  <message id="wtx.eml.composer.file-too-large">Error: file size of {1} KB exceeds limit ({2} KB).</message>
+  <message id="wtx.eml.composer.uploading">Uploading attachments...</message>
+  <message id="wtx.eml.composer.attachment.failed">Error: empty or oversized attachments?</message>
+</messages>

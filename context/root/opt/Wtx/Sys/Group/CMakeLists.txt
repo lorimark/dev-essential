@@ -1,0 +1,6 @@
+
+set( WTX_FILES ${WTX_FILES}
+  ${CMAKE_CURRENT_SOURCE_DIR}/Item.cpp
+  PARENT_SCOPE
+)
+

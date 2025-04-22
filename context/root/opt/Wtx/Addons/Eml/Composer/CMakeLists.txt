@@ -1,0 +1,8 @@
+
+set( WTX_FILES ${WTX_FILES}
+  ${CMAKE_CURRENT_SOURCE_DIR}/AttachmentEditor.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Composer.cpp
+  PARENT_SCOPE
+)
+
+

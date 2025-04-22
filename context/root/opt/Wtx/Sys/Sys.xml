@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns:if="Wt.WTemplate.conditions">
+
+  <message id="sysUser.detailForm">
+
+    <div>User Detail Form</div>
+
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field keyField}      </div>
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field cfyField}      </div>
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field lastName}      </div>
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field firstName}     </div>
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field nickName}      </div>
+    <div class="col-sm-6">  ${block:Wtx.detailForm.field email}         </div>
+
+    <div class="col-sm-12"> ${block:Wtx.detailForm.field varField}      </div>
+
+    <div class="col-sm-6"> ${block:Wtx.detailForm.field createdOn}     </div>
+    <div class="col-sm-3"> ${block:Wtx.detailForm.field changedOn}     </div>
+    <div class="col-sm-3"> ${block:Wtx.detailForm.field uidField}      </div>
+
+
+  </message>
+
+  <message id="sysConfig.detailForm">
+
+    <div class="col-sm-5"> ${block:Wtx.detailForm.field keyField}      </div>
+    <div class="col-sm-5"> ${block:Wtx.detailForm.field cfyField}      </div>
+    <div class="col-sm-2"> ${block:Wtx.detailForm.field isActive}      </div>
+
+    <div class="col-sm-12"> ${block:Wtx.detailForm.field tag}           </div>
+    <div class="col-sm-12"> ${block:Wtx.detailForm.field varField}      </div>
+
+    <div class="col-sm-6"> ${block:Wtx.detailForm.field createdOn}     </div>
+    <div class="col-sm-3"> ${block:Wtx.detailForm.field changedOn}     </div>
+    <div class="col-sm-3"> ${block:Wtx.detailForm.field uidField}      </div>
+
+  </message>
+
+  <message id="sysLookup.detailForm">
+
+    ${block:Wtx.detailForm.field keyField    "col-sm-12" }
+    ${block:Wtx.detailForm.field cfyField    "col-sm-12" }
+    ${block:Wtx.detailForm.field description "col-sm-12" }
+    ${block:Wtx.detailForm.field tag         "col-sm-12" }
+
+
+  </message>
+
+</messages>
+
+
+

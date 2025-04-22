@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages xmlns:if="Wt.WTemplate.conditions">
+
+  <note>
+    this is the 'day' header where the date is
+     shown as well as any system default messages,
+     such as holidays or special events
+  </note>
+  <message id="Wtx.Calendar.day.cell">
+    ${day}
+    ${header}
+    ${body}
+    ${footer}
+  </message>
+
+  <message id="Wtx.Calendar.toolBar">
+    ${new}
+    ${today}
+    ${previous}
+    ${next}
+    ${date}
+    ${find}
+    ${view}
+    ${settings}
+  </message>
+
+  <message id="Wtx.Calendar.widget">
+    <div>
+      ${toolBar}
+    </div>
+    <div>
+      ${stack}
+    </div>
+  </message>
+
+  <message id="Wtx.Calendar.Widget.new">new</message>
+  <message id="Wtx.Calendar.Widget.today">today</message>
+  <message id="Wtx.Calendar.Widget.previous">&lt;</message>
+  <message id="Wtx.Calendar.Widget.next">&gt;</message>
+  <message id="Wtx.Calendar.Widget.find">find</message>
+  <message id="Wtx.Calendar.Widget.view">view</message>
+  <message id="Wtx.Calendar.Widget.settings">settings</message>
+
+  <message id="Wtx.Calendar.Widget.View.day">Day</message>
+  <message id="Wtx.Calendar.Widget.View.week">Week</message>
+  <message id="Wtx.Calendar.Widget.View.month">Month</message>
+  <message id="Wtx.Calendar.Widget.View.year">Year</message>
+  <message id="Wtx.Calendar.Widget.View.schedule">Schedule</message>
+  <message id="Wtx.Calendar.Widget.View.4-days">4-Days</message>
+  <message id="Wtx.Calendar.Widget.View.5-days">5-Days</message>
+  <message id="Wtx.Calendar.Widget.View.table">Table</message>
+
+  <message id="Wtx.Calendar.Detail.submit">Submit</message>
+  <message id="Wtx.Calendar.Detail.close">Close</message>
+  <message id="Wtx.Calendar.Detail.delete">Delete</message>
+  <message id="Wtx.Calendar.Detail.print">Print</message>
+
+  <message id="Wtx.Calendar.dayname.sun">Sunday</message>
+  <message id="Wtx.Calendar.dayname.mon">Monday</message>
+  <message id="Wtx.Calendar.dayname.tue">Tuesday</message>
+  <message id="Wtx.Calendar.dayname.wed">Wednesday</message>
+  <message id="Wtx.Calendar.dayname.thu">Thursday</message>
+  <message id="Wtx.Calendar.dayname.fri">Friday</message>
+  <message id="Wtx.Calendar.dayname.sat">Saturday</message>
+
+</messages>
+
+

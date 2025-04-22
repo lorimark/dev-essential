@@ -1,0 +1,169 @@
+
+div.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 80vh;
+  text-align: left;
+  border-collapse: collapse;
+}
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+  width: 14.25%;
+#  height: 20%;
+}
+.divTable.blueTable .divTableBody .divTableCell {
+  font-size: 13px;
+}
+
+#.divTable.blueTable .divTableRow:nth-child(even) {
+#  background: #D7F6DA;
+#}
+#.divTable.blueTable .divTableRow:nth-child(odd) {
+#  background: #C8EFCC;
+#}
+#.divTable.blueTable .divTableOut {
+#  background: #C8EFCC;
+#}
+
+.divTable.blueTable .divTableHeading {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+  text-align: center;
+}
+.divTable.blueTable .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+  height: 20px;
+}
+.divTable.blueTable .divTableHeading .divTableHead:first-child {
+  border-left: none;
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+  text-align: right;
+}
+.blueTable .tableFootStyle .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+.divToday { background: #C8EFCC; }
+
+.divDay {
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+#.divDay {
+#  display: block;
+#  height: 30px;
+#  width: 30px;
+#  line-height: 30px;
+#
+#  -moz-border-radius: 15px; /* or 50% */
+#  border-radius: 15px; /* or 50% */
+#
+#  background-color: black;
+#  color: white;
+#  text-align: center;
+#  font-size: 2em;
+#}
+
+.divHour {
+  text-align: center;
+  padding: 18px 8px;
+  display: table-cell;
+}
+
+.calendarPicker {
+  font-size: .8em;
+}
+
+.divDay.divSelectedDate { background: #29c9d5; }
+.divPreviousMonth { background: #C8D9EF; }
+.divNextMonth { background: #EFEDC8; }
+.divTableView { background: transparent; }
+.divFooter { position: bottom; }
+
+.divDayOfMonth {
+  background: 0;
+#  height: 20vh;
+}
+
+.calcolumn {
+  float: left;
+  width: 50%;
+}
+
+.calrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Wtx_MiniMonth {
+  width: 100%;
+  height: 100%;
+}
+
+.Wtx_MiniMonth_dayname {
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding: 3px;
+}
+
+.Wtx_MiniMonth_today {
+  background-color: #defc11;
+  border-radius: 20px;
+}
+
+.Wtx_MiniMonth_selected {
+  background-color: #71a7d7;
+  border-radius: 20px;
+}
+
+.Wtx_MiniMonth_day {
+  text-align: center;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+}
+

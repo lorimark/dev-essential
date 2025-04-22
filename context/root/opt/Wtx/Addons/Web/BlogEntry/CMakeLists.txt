@@ -1,0 +1,21 @@
+
+if( USING_BLOGENTRY )
+
+  set( BLOG_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/Item.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ViewDetail.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ViewSummary.cpp
+  )
+
+set( WTX_FILES ${WTX_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Item.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ViewDetail.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ViewSummary.cpp
+  PARENT_SCOPE
+)
+
+endif( USING_BLOGENTRY )
+
+
+
+

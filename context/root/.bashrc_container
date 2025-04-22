@@ -1,0 +1,14 @@
+
+#
+# this will modify the prompt to include reference to
+#  the running container on the command line.
+#
+if test -f /.dockerenv; then
+  if test -f /.containername; then
+    PS1="D:$(cat /.containername)-> $PS1"
+  fi
+  if test -f /.containerinfo; then
+   cat /.containerinfo
+  fi
+fi
+

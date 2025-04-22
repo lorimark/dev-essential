@@ -1,0 +1,7 @@
+
+set( WTX_FILES ${WTX_FILES}
+  ${CMAKE_CURRENT_SOURCE_DIR}/Message.cpp
+  PARENT_SCOPE
+)
+
+

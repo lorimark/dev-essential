@@ -1,0 +1,10 @@
+
+.linkstyle span {
+  color: blue;
+  cursor: pointer;
+}
+
+.linkstyle:hover span {
+  text-decoration: underline;
+}
+

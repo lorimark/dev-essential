@@ -1,0 +1,9 @@
+
+
+set( WTX_FILES ${WTX_FILES}
+  ${CMAKE_CURRENT_SOURCE_DIR}/Manager.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Account.cpp
+  PARENT_SCOPE
+)
+
+
