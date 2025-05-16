@@ -28,7 +28,9 @@ RUN apt-get update       \
  && apt-get install -y   \
     build-essential      \
     curl                 \
+    rsync                \
     libcurl4-openssl-dev \
+    libssl-dev           \
     tzdata               \
     cmake                \
     gcc                  \
