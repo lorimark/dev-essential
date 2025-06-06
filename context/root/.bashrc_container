@@ -7,12 +7,20 @@
 #  to be automatically included on new containers;
 #  [ -f "/.bashrc_container" ] && source "/.bashrc_container"
 #
+# make sure we're in a container
 if test -f /.dockerenv; then
+
+  # make sure there's a container name file
   if test -f /.containername; then
+
+    # add the container name to the prompt
     PS1="D:$(cat /.containername)-> $PS1"
   fi
+
+  # if there is a container info, print it
   if test -f /.containerinfo; then
    cat /.containerinfo
   fi
+
 fi
 

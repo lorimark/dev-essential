@@ -63,6 +63,8 @@ set cursorline
 colorscheme ron
 hi CursorLine ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
+autocmd FileType c,cpp,java setlocal comments=s0:/*,mb:**,ex:*/ formatoptions+=cro
+
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")

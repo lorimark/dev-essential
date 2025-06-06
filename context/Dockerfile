@@ -31,6 +31,7 @@ RUN apt-get update       \
     rsync                \
     libcurl4-openssl-dev \
     libssl-dev           \
+    libtinyxml2-dev      \
     tzdata               \
     cmake                \
     gcc                  \
@@ -41,6 +42,7 @@ RUN apt-get update       \
     graphviz             \
     vim                  \
     sqlite3              \
+    dnsutils             \
     mc
 
 # Install Howard Hinnant's date library
