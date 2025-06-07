@@ -29,6 +29,9 @@ RUN apt-get update       \
     build-essential      \
     curl                 \
     rsync                \
+    iputils-ping         \
+    nodejs               \
+    npm                  \
     libcurl4-openssl-dev \
     libssl-dev           \
     libtinyxml2-dev      \
@@ -164,74 +167,11 @@ RUN make install
 # stuff a console prompt that will cause the prompt to
 #  indicate that this is running from a container
 #
-run /bin/bash -c "echo \"PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h(docker)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '\" >> /root/.bashrc "
+RUN /bin/bash -c "echo \"PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h(docker)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '\" >> /root/.bashrc "
 
 RUN ldconfig
 
 COPY root /
 
-# The following is a code snip that can be added to the
-#  host machine .bashrc file.  When this docker image
-#  is launched, it will process the local user .bashrc
-#  file and pick up this modified prompt.
-##
-## If running ~inside~ a docker container, and if there is a
-##  containername file, include this file on the prompt
-##
-#if test -f /.dockerenv; then
-#  if test -f /.containername; then
-#    PS1="D:$(cat /.containername)-> $PS1"
-#  fi
-#  if test -f /.containerinfo; then
-#    cat /.containerinfo
-#  fi
-#fi
-
-
-# FROM baseimage AS wt-runtime
-# # Install all the libraries from the top, but not the dev Package
-# RUN apt-get update                 \
-#  && apt-get install -y             \
-#     libboost-thread1.71.0          \
-#     libboost-program-options1.71.0 \
-#     libboost-filesystem1.71.0      \
-#     libhpdf-2.3.0=2.3.0*           \
-#     graphicsmagick=1.4*            \
-#     libpangoft2-1.0-0              \
-#     libpq5                         \
-#     libglu1-mesa                   \
-#     zlib1g=1:1.2.11*
-# 
-# ARG wtversion
-# ENV WT_Version ${wtversion}
-# COPY --from=wt-compiled /home/wt-source/wt-${WT_Version}/resources /home/docroot/resources
-# COPY --from=wt-compiled /usr/local/lib /usr/local/lib
-
-
-
-
-# 
-# FROM wt-compiled AS project-build
-# #CMAKE Executable Name to run
-# ARG projectname
-# COPY Wt-Project /home/wt-project/
-# RUN chmod +x /home/wt-project/startScript.sh
-# WORKDIR /home/wt-project/build
-# RUN cmake ../
-# RUN make -j4 
-# RUN mkdir -p /home/app  \
-#     && mv /home/wt-project/build/source/${projectname} /home/app/ \
-#     && mv /home/wt-project/startScript.sh /home/app/
-# 
-# 
-# FROM wt-runtime AS application
-# ARG projectname
-# # Project_Name is used in startScript.sh
-# ENV Project_Name=$projectname
-# COPY Wt/wt_config.xml /home/
-# COPY --from=project-build /home/app /home/
-# COPY Wt-Project/approot /home/approot
-# COPY Wt-Project/docroot /home/docroot
-# COPY Wt/Bootstrap_Additions/ /home/docroot/resources/
-# ENTRYPOINT [ "/home/startScript.sh" ]
+RUN ln -s /opt/dev-essential/devess.sh /bin/devess
 
