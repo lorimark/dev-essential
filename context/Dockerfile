@@ -175,3 +175,5 @@ COPY root /
 
 RUN ln -s /opt/dev-essential/devess.sh /bin/devess
 
+WORKDIR /
+

@@ -19,6 +19,8 @@ if test -f /.dockerenv; then
 
   # if there is a container info, print it
   if test -f /.containerinfo; then
+   echo "dev-essential build time:"
+   cat /.buildtime
    cat /.containerinfo
   fi
 
