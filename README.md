@@ -39,7 +39,7 @@ The 'context' folder here contains all the parts that are going to be stuffed in
 ## Running the container
 The container can be started with a simple 'docker run';
 
-```
+```bash
 docker run -it dev-essential
 ```
 
@@ -47,7 +47,7 @@ This will place you in to the root of the running container.  You can then enter
  `/opt/dev-essential` folder to access some of the scripts and other useful
  tools parked in there;
 
-```
+```bash
 mark@ubuntu24.04:~/projects/dev-essential$ docker run -it --rm dev-essential:1
 root@a145f069b115(docker):/$ cd /opt/dev-essential/
 root@a145f069b115(docker):/opt/dev-essential$ ll
@@ -76,7 +76,7 @@ The `run.sh` script is normally the script that should be used to launch the con
  the user to compile the project on the local host, seemlessly integrating all of the
  compiler tools as if the user were still running within the host machine.
 
-```
+```bash
 docker run                             \ <-- run the container
   -it                                  \ <-- leave in terminal mode
   --rm                                 \ <-- remove the container after exit
