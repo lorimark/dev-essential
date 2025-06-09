@@ -38,4 +38,12 @@ The 'context' folder here contains all the parts that are going to be stuffed in
 This can be hooked in to the users local .bashrc file to cause the prompt
  to be improved indicating when the user is operating in the container.
 
+Add the following line to your local user .bashrc file;
+
+`[ -f "/.bashrc_container" ] && source "/.bashrc_container"`
+
+This will check if there is a `/.bashrc_container` file available in the root folder,
+ and if there is, it will process it in to the bash environment.  The purpose is to
+ modify the prompt to include information about the running container.
+
 

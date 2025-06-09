@@ -33,6 +33,33 @@ The 'context' folder here contains all the parts that are going to be stuffed in
  whatever.  It's just the place to put all the extra stuff I want at my fingertips
  when developing.
 
+<a name="running"></a>
+## Running the container
+The container can be started with a simple 'docker run';
+
+`docker run -it dev-essential`
+
+This will place you in to the root of the running container;
+
+`
+mark@ubuntu24.04:~/projects/dev-essential$ docker run -it --rm dev-essential:1
+root@a145f069b115(docker):/$ cd /opt/dev-essential/
+root@a145f069b115(docker):/opt/dev-essential$ ll
+total 56
+drwxrwxr-x 2 root root  4096 Jun  9 09:36 ./
+drwxrwxr-x 1 root root  4096 Apr 20 15:47 ../
+-rw-rw-r-- 1 root root 11357 Apr 20 11:35 LICENSE
+-rw-rw-r-- 1 root root  2033 Jun  9 09:35 README.md
+-rwxrw-r-- 1 root root   108 Jul 12  2024 attach.sh*
+-rwxrwxr-x 1 root root   715 Jun  9 09:30 build.sh*
+-rwxrwxr-x 1 root root    71 Jun  9 09:29 devess.sh*
+-rw-r--r-- 1 root root    49 Jun  9 09:29 devess.txt
+-rwxrwxr-x 1 root root    36 Apr 20 11:46 load.sh*
+-rwxrwxr-x 1 root root   947 Apr 22 11:36 run.sh*
+-rwxrwxr-x 1 root root    59 Apr 20 11:46 save.sh*
+root@a145f069b115(docker):/opt/dev-essential$ 
+`
+
 <a name="bashrc"></a>
 ## Hooking .bashrc
 This can be hooked in to the users local .bashrc file to cause the prompt
