@@ -59,6 +59,32 @@ drwxrwxr-x 1 root root  4096 Apr 20 15:47 ../
 root@a145f069b115(docker):/opt/dev-essential$ 
 ```
 
+In the `/opt/dev-essential` folder are a handful of scripts for loading and running
+ and building the container, including attaching to a running container.
+
+The `run.sh` script is normally the script that should be used to launch the container.
+ This script has all the necessary hooks to cause the container to run with
+ user-level information, and the ability to navigate around the host computer from
+ within the container.  This faciliates the launching of the container and allowing
+ the user to compile the project on the local host, seemlessly integrating all of the
+ compiler tools as if the user were still running within the host machine.
+
+```docker run                             \ <-- run the container
+  -it                                  \ <-- leave in terminal mode
+  --rm                                 \ <-- remove the container after exit
+  --net host                           \ <-- grant access to the host services
+  -u $(id -u ${USER}):$(id -g ${USER}) \ <-- set .this. {user} and {group} values
+  -v /etc/passwd:/etc/passwd           \ <-- hook `passwd` so we can have the user name
+  -v /etc/group:/etc/group             \ <-- hook `group` so we can have group info
+  -v /home:/home                       \ <-- map the 'home' folder so we can move freely
+  -v /mnt:/mnt                         \ <-- map the `mnt` folder so we can move freely
+  -e "TERM=xterm-256color"             \ <-- helps with some of the editor display encoding
+  -w $(pwd)                            \ <-- move to the current directory automatically
+  dev-essential:1                        <-- give the container name
+```
+
+
+
 <a name="bashrc"></a>
 ## Hooking .bashrc
 This can be hooked in to the users local .bashrc file to cause the prompt
