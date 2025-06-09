@@ -39,6 +39,7 @@ This can be hooked in to the users local .bashrc file to cause the prompt
  to be improved indicating when the user is operating in the container.
 
 Add the following line to your local user .bashrc file;
+
 `[ -f "/.bashrc_container" ] && source "/.bashrc_container"`
 
 
