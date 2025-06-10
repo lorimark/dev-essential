@@ -28,10 +28,14 @@ RUN apt-get update       \
  && apt-get install -y   \
     build-essential      \
     curl                 \
+    wget                 \
+    tar                  \
     rsync                \
     iputils-ping         \
     nodejs               \
     npm                  \
+    libpci3              \
+    libegl1              \
     libcurl4-openssl-dev \
     libssl-dev           \
     libtinyxml2-dev      \
@@ -162,6 +166,30 @@ RUN cmake                                           \
     ..
 RUN make -j4
 RUN make install
+
+#
+# Install GUI type utilities
+#
+FROM wt-compiled AS firefox
+RUN apt-get update     \
+ && apt-get install -y \
+    x11-apps           \
+    libgtk-3-0         \
+    libdbus-glib-1-2   \
+    libxt6             \
+    libxss1            \
+    libnss3            \
+    libasound2         \
+ && apt clean
+
+# Download Firefox from Mozilla (not Snap!)
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV FIREFOX_VERSION=latest
+
+RUN wget -O /tmp/firefox.tar.xz "https://download.mozilla.org/?product=firefox-${FIREFOX_VERSION}&os=linux64&lang=en-US"
+RUN tar -xf /tmp/firefox.tar.xz -C /opt/
+RUN ln -s /opt/firefox/firefox /usr/bin/firefox
 
 #
 # stuff a console prompt that will cause the prompt to

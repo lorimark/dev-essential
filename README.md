@@ -19,14 +19,11 @@ with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
 <a name="introduction"></a>
 ## Introduction
 This is my dev-kit which includes every dev toolchain I normally use including
- configured editors. It is intended to be run as a docker container, hooked in to
- the terminal, offering all the dev tools and editors, without having to install
+ configured editors, compilers, networking management tools, inspection and
+ debugger tools, and anything else that might require some sort of host installation
+ before I am able to use it.. It is intended to be run as a docker container, hooked
+ in to the terminal, offering all the dev tools and editors, without having to install
  everything on a host computer.
-
-This project includes all the gcc build stuff along with scripts for launching
- the container on a machine and hooking it in to the OS such that the running
- container is recognized as the local user. This makes installing/setting-up/running
- a development environment a breeze.
 
 The 'context' folder here contains all the parts that are going to be stuffed in to the
  docker image, including any extra files or source projects, anything useful for dev
