@@ -27,6 +27,7 @@ RUN apt-get update                                            \
 RUN apt-get update       \
  && apt-get install -y   \
     build-essential      \
+    dbus                 \
     curl                 \
     wget                 \
     tar                  \
@@ -171,15 +172,18 @@ RUN make install
 # Install GUI type utilities
 #
 FROM wt-compiled AS firefox
-RUN apt-get update     \
- && apt-get install -y \
-    x11-apps           \
-    libgtk-3-0         \
-    libdbus-glib-1-2   \
-    libxt6             \
-    libxss1            \
-    libnss3            \
-    libasound2         \
+RUN apt-get update       \
+ && apt-get install -y   \
+#    dbus                 \
+    x11-apps             \
+    libgtk-3-0           \
+    libdbus-glib-1-2     \
+    libxt6               \
+    libxss1              \
+    libnss3              \
+    libasound2           \
+    libpci3              \
+    libegl1              \
  && apt clean
 
 # Download Firefox from Mozilla (not Snap!)
