@@ -53,6 +53,10 @@ RUN apt-get update       \
     dnsutils             \
     mc
 
+# Install rust
+RUN curl https://sh.rustup.rs -sSf | RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust bash -s -- -y
+# RUN curl https://sh.rustup.rs -sSf | bash -s -- -y --no-modify-path --default-toolchain stable --profile default --prefix /opt/rust
+
 # Install Howard Hinnant's date library
 RUN git clone https://github.com/HowardHinnant/date.git /opt/date \
  && cd /opt/date                                                  \
