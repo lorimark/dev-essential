@@ -1,7 +1,8 @@
 # Global Arguments to be reused within some containers
 # need to be defined without value in the image-definition
-# ARG wtversion=4.10-release
-ARG wtversion=master
+ARG wtversion=4.10-release
+# ARG wtversion=4.11-release
+# ARG wtversion=master
 ARG projectname=WtApplication.wt
 
 # Using a baseimage to set the same in compiling-container as well as runtime-container
@@ -52,6 +53,13 @@ RUN apt-get update       \
     sqlite3              \
     dnsutils             \
     mc
+
+# Installing pandoc and tools to convert README.md to pdf
+RUN apt-get update       \
+ && apt-get install -y   \
+    pandoc               \
+    texlive              \
+    texlive-latex-extra
 
 # Install rust
 RUN curl https://sh.rustup.rs -sSf | RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust bash -s -- -y
@@ -159,6 +167,9 @@ WORKDIR /opt/wt-source/wt-${WT_Version}/build
 #      mkdir build
 #      cd build
 #  -DCMAKE_BUILD_TYPE=Debug \
+
+RUN mkdir -p /opt/wt-source/wt-4.10-release/doc/reference/
+RUN touch /opt/wt-source/wt-4.10-release/doc/reference/wt.qch
 RUN cmake                                           \
     -DCMAKE_INSTALL_PREFIX=/opt/Wt4                 \
     -DWT_WRASTERIMAGE_IMPLEMENTATION=GraphicsMagick \
@@ -167,6 +178,7 @@ RUN cmake                                           \
     -DENABLE_WTTEST=OFF                             \
     -DENABLE_QT4=OFF                                \
     -DENABLE_QT5=OFF                                \
+    -DINSTALL_DOCUMENTATION=ON                      \
     -DENABLE_HARU=TRUE                              \
     ..
 RUN make -j4
